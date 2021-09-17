@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+
+{% block title %}About{% endblock %}
+
+{% block content %}
+  <form action={{action_link}} method="POST">
+    <label for="title">Title:</label><br>
+    <input type="text" id="title" name="title" value='{{note_title}}'><br><br>
+    <label for="entry">Entry:</label><br>
+    <textarea id="entry" name="entry">{{note_entry}}</textarea><br><br>
+    <input type="submit" value="Submit">
+  </form>
+{% endblock %}

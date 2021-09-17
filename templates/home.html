@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block title %}Home{% endblock %}
+
+{% block content %}
+  <h2>Make this part of the page like the iphone notes app</h2>
+  <div style="margin-top:15px; width: 300px"> 
+    {% for note in notes %}
+      <a class="note" href={{links[loop.index-1]}}>
+        <div>
+          <p class="note_text">{{note[2]}}</p>
+        </div>
+      </a>
+    {% endfor %}
+  </div>
+{% endblock %}

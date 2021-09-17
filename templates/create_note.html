@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+
+{% block title %}Create Note{% endblock %}
+
+{% block content %}
+  <form action="/createNoteAction" method="POST">
+    <label for="title">Title:</label><br>
+    <input type="text" id="title" name="title"><br><br>
+    <label for="entry">Entry:</label><br>
+    <textarea id="entry" name="entry"></textarea><br><br>
+    <input type="submit" value="Submit">
+  </form>
+{% endblock %}

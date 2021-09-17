@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+
+{% block title %}Display Note{% endblock %}
+
+{% block content %}
+  <h4>{{note_title}}</h4>
+  <p>{{note_entry}}</p>
+
+  <a href={{edit_link}}>Edit Note</a>
+{% endblock %}

@@ -1,0 +1,18 @@
+<!doctype html>
+<html>
+  <head>
+    <link rel="stylesheet" href={{ url_for('static', filename='style.css') }}>
+    <title>{% block title %}{% endblock %}</title>
+  </head>
+  <body>
+    <div class="topnav">
+        <a href='/home'>Home</a>
+        <a href='/createNote'>Create Note</a>
+        <a href="/about">About</a>
+        <a href="/profile">Your Profile</a>
+        <p class="logo_text">Max's Private Notes Web</p>
+        <a style="float:right" href="/logout">Logout</a>
+      </div>
+    <div id="content">{% block content %}{% endblock %}</div>
+  </body>
+</html>

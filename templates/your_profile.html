@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+
+{% block title %}Profile{% endblock %}
+
+{% block content %}
+  <div class="logged-in-box auth0-box logged-in">
+    <img class="avatar" src="{{userinfo['picture']}}"/>
+    <h2>{{userinfo['name']}}</h2>
+  </div>
+  <hr>
+{% endblock %}
