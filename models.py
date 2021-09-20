@@ -59,8 +59,41 @@ def edit_note_sql(new_title, new_entry, note_id):
     cur = conn.cursor()
 
     res = cur.execute('UPDATE Notes SET Title=%s, Entry=%s WHERE NoteID=%s', (new_title, new_entry, str(note_id)))
+
     conn.commit()
+    conn.close()
 
     print(res)
+    print(type(res))
 
+    if(res == 0):
+        return False
+    return True
+
+
+def delete_note_sql(note_id):
+    conn = get_connection()
+    cur = conn.cursor()
+    res = cur.execute('DELETE FROM Notes WHERE NoteID=%s', (str(note_id),))
+
+    conn.commit()
     conn.close()
+
+    if(res == 0):
+        return False
+    return True
+
+def check_note_exists(note_title, user_id):
+    conn = get_connection()
+    cur = conn.cursor()
+    cur.execute('SELECT * FROM Notes WHERE Title=%s AND UserID=%s', (str(note_title), user_id))
+
+    note = cur.fetchall()
+    conn.close()
+
+    print(note)
+    if len(note) == 0:
+        return False
+    return True
+    
+    

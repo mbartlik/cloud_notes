@@ -3,8 +3,11 @@
 {% block title %}Display Note{% endblock %}
 
 {% block content %}
-  <h4>{{note_title}}</h4>
-  <p>{{note_entry}}</p>
-
-  <a href={{edit_link}}>Edit Note</a>
+  <h2>{{note_title}}</h2>
+  <div id="note_entry">
+    <p>{{note_entry}}</p>
+  </div>
+  
+  <a class="btn_a" href={{edit_link}}>Edit Note</a>
+  <a class="btn_a" href={{delete_link}}>Delete Note</a>
 {% endblock %}

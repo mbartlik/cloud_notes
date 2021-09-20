@@ -5,9 +5,9 @@
 {% block content %}
   <form action="/createNoteAction" method="POST">
     <label for="title">Title:</label><br>
-    <input type="text" id="title" name="title"><br><br>
+    <input class="input_field" type="text" id="title" name="title"><br><br>
     <label for="entry">Entry:</label><br>
-    <textarea id="entry" name="entry"></textarea><br><br>
+    <textarea class="input_field" id="entry" name="entry" style="min-width: 500px; min-height: 200px;"></textarea><br><br>
     <input type="submit" value="Submit">
   </form>
 {% endblock %}

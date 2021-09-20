@@ -3,14 +3,19 @@
 {% block title %}Home{% endblock %}
 
 {% block content %}
-  <h2>Make this part of the page like the iphone notes app</h2>
-  <div style="margin-top:15px; width: 300px"> 
-    {% for note in notes %}
-      <a class="note" href={{links[loop.index-1]}}>
-        <div>
-          <p class="note_text">{{note[2]}}</p>
-        </div>
-      </a>
-    {% endfor %}
+  <h2 style="margin-top: 0px;">Your Notes</h2>
+  <div id="note_div">
+    {% if notes_exist %}
+      {% for note in notes %}
+        <a class="note" href={{links[loop.index-1]}}>
+          <div>
+            <p class="note_text">{{note[2]}}</p>
+          </div>
+        </a>
+        <hr>
+      {% endfor %}
+    {% else %}
+      <a class="note" href='/createNote'>Create Note</a>
+    {% endif %}
   </div>
 {% endblock %}
