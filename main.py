@@ -73,7 +73,8 @@ def index():
 
 @app.route('/login')
 def login():
-    return auth0.authorize_redirect(redirect_uri='https://private-notes-326216.uk.r.appspot.com/callback')
+    #return auth0.authorize_redirect(redirect_uri='http://127.0.0.1:5000/callback')
+    return auth0.authorize_redirect(redirect_uri='https://max-notes-keeper.uk.r.appspot.com/callback')
 
 
 @app.route('/logout')
@@ -81,7 +82,8 @@ def logout():
     # Clear session stored data
     session.clear()
     # Redirect user to logout endpoint
-    return redirect(auth0.api_base_url + '/v2/logout?returnTo=https%3A%2F%2Fprivate-notes-326216.uk.r.appspot.com/&client_id=06F6PVKlsBK5xXyHHc6QiBnDYPox7ctx')
+    #return redirect(auth0.api_base_url + '/v2/logout?returnTo=https%3A%2F%2F127.0.0.1:5000/')
+    return redirect(auth0.api_base_url + '/v2/logout?returnTo=https%3A%2F%2Fmax-notes-keeper.uk.r.appspot.com/&client_id=06F6PVKlsBK5xXyHHc6QiBnDYPox7ctx')
 
 
 @app.route("/home")
@@ -118,7 +120,8 @@ def create_note_action():
                 return render_template('error.html', error_message='You already have a note with that title')
 
             create_note_sql(session['profile']['user_id'], title, entry)
-        except:
+        except Exception as e:
+            print(e)
             return render_template('error.html', error_message='Sorry, note could not be created. Try again later.')
 
     return redirect('/home')

@@ -6,7 +6,7 @@ import pymysql
 db_user = 'root'
 db_password = ''
 db_name = 'notes'
-db_connection_name = 'private-notes-326216:us-east4:private-notes-sql'
+db_connection_name = 'max-notes-keeper:us-east4:notes-keeper'
 
 # Establishes connection with Google Cloud SQL database
 def get_connection():
@@ -62,9 +62,6 @@ def edit_note_sql(new_title, new_entry, note_id):
 
     conn.commit()
     conn.close()
-
-    print(res)
-    print(type(res))
 
     if(res == 0):
         return False
